@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Test</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <form action="/filter" method="post">
+        Select Location:
+        <select name="location">
+            <option value="MH">MH</option>
+            <option value="MP">MP</option>
+            <option value="UP">UP</option>
+            <option value="CH">CH</option>
+        </select>
+
+        Select Source:
+        <select name="source">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        Select Destination:
+        <select name="destination">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        Select Neighbour:
+        <select name="neighbour">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" onclick="window.location.href='/'" />
+    </form>
+
+    <% if (typeof data !== 'undefined' && data) { %>
+      <div class="test">
+          <p><label for="Location">Location:</label> <%= data.location %></p>
+          <p><label for="Source">Source:</label> <%= data.source %></p>
+          <p><label for="Destination">Destination:</label> <%= data.destination %></p>
+          <p><label for="Neighbour">Neighbour:</label> <%= data.neighbour %></p>
+      </div>
+    <% } %>
   </body>
 </html>
